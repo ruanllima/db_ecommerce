@@ -2,7 +2,7 @@
 Bem-vindo ao repositório do Sistema de Gerenciamento e-commerce! Este esquema de banco de dados foi criado para uma aplicação de gerenciamento de vendas, clientes, produtos, pagamentos, fornecedores e entregas. Abaixo, você encontrará uma visão geral das principais entidades do banco de dados.
 
 # Entidades Principais
-** clients
+**clients
 Armazena informações dos clientes, incluindo nome, tipo de pessoa, CPF, e endereço.
 
 product
