@@ -1,119 +1,45 @@
 # Sistema de Gerenciamento - e-commerce
+Bem-vindo ao repositório do Sistema de Gerenciamento e-commerce! Este esquema de banco de dados foi criado para uma aplicação de gerenciamento de vendas, clientes, produtos, pagamentos, fornecedores e entregas. Abaixo, você encontrará uma visão geral das principais entidades do banco de dados.
 
-Este repositório contém o esquema de banco de dados para um sistema de gerenciamento de uma empresa em formato online. O esquema foi projetado para armazenar informações relevantes para um negócio que lida com vendas e estoque de produtos. Abaixo, você encontrará informações sobre as tabelas e sua estrutura.
+# Entidades Principais
+** clients
+Armazena informações dos clientes, incluindo nome, tipo de pessoa, CPF, e endereço.
 
-# Tabelas do Banco de Dados
+product
+Armazena informações dos produtos, como nome, categoria, avaliação, vendedor e tamanho.
 
-clients: Armazena informações dos clientes.
+payments
+Registra os pagamentos dos clientes, incluindo tipo de pagamento e limite disponível.
 
-idClient: Identificador único do cliente.
-pessoa: Enumeração que indica se o cliente é uma pessoa física ou jurídica.
-Cname: Nome do cliente (pessoa física ou nome da empresa).
-Minit: Iniciais do nome do cliente (para pessoas físicas).
-cpf: CPF do cliente (obrigatório e único).
-address: Endereço do cliente.
+cardMain
+Contém informações do cartão de crédito principal dos clientes, como número, agência e data de validade.
 
+cardSecond
+Armazena informações do segundo cartão de crédito dos clientes.
 
-product: Armazena informações dos produtos.
+orders
+Registra os pedidos dos clientes, incluindo status, descrição e método de pagamento.
 
-idProduct: Identificador único do produto.
-Pname: Nome do produto.
-category: Categoria do produto (eletrônico, vestimenta, brinquedos, alimentos, móveis).
-assessment: Avaliação do produto (pontuação).
-prodSeller: Nome do vendedor do produto.
-size: Tamanho do produto.
+productStorage
+Gerencia o estoque de produtos, controlando a quantidade disponível.
 
+supplier
+Armazena informações dos fornecedores, como nome e contato.
 
-payments: Armazena informações de pagamentos dos clientes.
+seller
+Contém informações dos vendedores, incluindo nome, avaliação, localização e contato.
 
-idClient: Referência ao cliente.
-id_payment: Identificador único do pagamento.
-typePayment: Método de pagamento (boleto, cartão, dois cartões, PIX).
-limitAvailable: Limite disponível para o pagamento.
+productSeller
+Relaciona produtos aos vendedores, controlando a quantidade disponível.
 
+productOrder
+Relaciona produtos aos pedidos, controlando a quantidade e a disponibilidade.
 
-cardMain: Armazena informações do cartão de crédito principal do cliente.
+storageLocation
+Relaciona produtos às localizações de armazenamento no estoque.
 
-nameClient: Nome do cliente.
-cardNumber: Número do cartão de crédito (único).
-agency: Agência do cartão.
-data_vali: Data de validade do cartão.
-cvv: Código de segurança do cartão.
+delivery
+Registra informações das entregas, incluindo código de rastreamento, status e endereço.
 
-
-cardSecond: Armazena informações do segundo cartão de crédito do cliente.
-
-nameClient: Nome do cliente.
-cardNumber: Número do cartão de crédito (único).
-agency: Agência do cartão.
-data_vali: Data de validade do cartão.
-cvv: Código de segurança do cartão.
-
-
-orders: Armazena informações dos pedidos.
-
-idOrder: Identificador único do pedido.
-idOrderClient: Referência ao cliente que fez o pedido.
-orderStatus: Status do pedido (cancelado, confirmado, em processamento).
-ordersDescription: Descrição do pedido.
-sendValue: Valor do envio.
-payment: Método de pagamento do pedido.
-
-
-productStorage: Armazena informações do estoque de produtos.
-
-idProdStorage: Identificador único do estoque.
-storageLocation: Localização do estoque.
-quantity: Quantidade de produtos em estoque.
-
-
-supplier: Armazena informações dos fornecedores.
-
-idSupplier: Identificador único do fornecedor.
-SocialName: Nome social do fornecedor.
-CNPJ: CNPJ do fornecedor (único).
-contact: Contato do fornecedor.
-
-
-seller: Armazena informações dos vendedores.
-
-idSeller: Identificador único do vendedor.
-SocialName: Nome social do vendedor.
-AbstName: Nome abreviado do vendedor.
-CNPJ: CNPJ do vendedor (único).
-CPF: CPF do vendedor.
-SAssessment: Avaliação do vendedor.
-location: Localização do vendedor.
-contact: Contato do vendedor.
-
-productSeller: Relaciona produtos e vendedores.
-idPseller: Referência ao vendedor.
-idProduct: Referência ao produto.
-prodQuantity: Quantidade de produtos disponíveis.
-
-productOrder: Relaciona produtos e pedidos.
-idPOproduct: Referência ao produto.
-idPOorder: Referência ao pedido.
-poQuantity: Quantidade de produtos no pedido.
-poStatus: Status da disponibilidade do produto.
-
-
-storageLocation: Relaciona localização de armazenamento e estoque de produtos.
-
-idLproduct: Referência ao produto.
-idLstorage: Referência ao estoque.
-location: Localização de armazenamento.
-
-
-delivery: Armazena informações das entregas.
-
-trackingCode: Código de rastreamento da entrega.
-idDOrder: Referência ao pedido.
-DValue: Valor da entrega.
-dClient: Cliente da entrega.
-stats: Status da entrega (a caminho, entregue).
-orderAdress: Endereço de entrega.
 Nota
-Este esquema de banco de dados foi projetado para fins educacionais e pode requerer ajustes para ser utilizado em um ambiente de produção. Certifique-se de adaptá-lo às necessidades específicas do seu projeto antes de implementá-lo. Se tiver alguma dúvida ou precisar de ajuda, sinta-se à vontade para entrar em contato.
-
-Lembre-se de que este é um esquema de banco de dados e não inclui a implementação de lógica de aplicativo ou a interação com um sistema real.
+Este esquema de banco de dados foi projetado para fins educacionais.
