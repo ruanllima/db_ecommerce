@@ -22,12 +22,12 @@ create table product (
 
 -- Tabela para armazenar informações de pagamentos
 create table payments(
-    idClient int not null,
+    PayIdClient int not null,
     id_payment int auto_increment,
     typePayment enum('Boleto', 'Cartão','Dois cartões','Pix') not null,
     limitAvailable float default 50,
     primary key(idClient, id_payment),
-    constraint fk_payments_client foreign key (idClient) references clients(Cname)
+    constraint fk_payments_client foreign key (PayIdClient) references clients(IdClient)
 );
 
 -- Tabela para armazenar informações do cartão de crédito principal
